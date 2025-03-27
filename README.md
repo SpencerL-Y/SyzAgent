@@ -78,7 +78,7 @@ cd imageDir
 cd ..
 ```
 
-When `create-image.sh` is finished, the `bullseyes.img` file will be generated at `/SyzWithLLM/imageDir/`.
+When `create-image.sh` is finished, the `bullseyes.img` file will be generated at `/SyzAgent/imageDir/`.
 
 ### construct ```linuxRepo``` folder
 ```
@@ -94,7 +94,7 @@ mkdir bc_dir
 python3 Compilation.py fuzzing
 ```
 
-When `Compilation.py` is finished, `vmlinux` will be generated at `/SyzWithLLM/linuxRepo/llvm_kernel_analysis/bc_dir/` and `bzImage` will be generated at `/SyzWithLLM/linuxRepo/llvm_kernel_analysis/bc_dir/arch/x86/boot/`.
+When `Compilation.py` is finished, `vmlinux` will be generated at `/SyzAgent/linuxRepo/llvm_kernel_analysis/bc_dir/` and `bzImage` will be generated at `/SyzAgent/linuxRepo/llvm_kernel_analysis/bc_dir/arch/x86/boot/`.
 
 ```
 cd ./Analyzer
@@ -130,25 +130,25 @@ qemu-system-x86_64 \
 	2>&1 | tee vm.log
 ```
 
-Now we can configure Syzkaller and it should be in the `SyzWithLLM/` directory.
+Now we can configure Syzkaller and it should be in the `SyzAgent/` directory.
  ```
 cd syzkaller
  ```
-Create a syz-manager configuration file `my.cfg` with the following contents (the path where SyzWithLLM is located needs to be relpaced with the actual path) and palce the file in the `SyzWithLLM/syzkaller/` directory.
+Create a syz-manager configuration file `my.cfg` with the following contents (the path where SyzAgent is located needs to be relpaced with the actual path) and palce the file in the `SyzAgent/syzkaller/` directory.
 ```
 {
     "target": "linux/amd64",
     "http": "127.0.0.1:56741",
-    "workdir": "/home/ubuntu/SyzWithLLM/syzkaller/workdir",
-    "kernel_obj": "/home/ubuntu/SyzWithLLM/linuxRepo/llvm_kernel_analysis/bc_dir",
-    "image": "/home/ubuntu/SyzWithLLM/imageDir/bullseye.img",
-    "sshkey": "/home/ubuntu/SyzWithLLM/imageDir/bullseye.id_rsa",
-    "syzkaller": "/home/ubuntu/SyzWithLLM/syzkaller",
+    "workdir": "/home/ubuntu/SyzAgent/syzkaller/workdir",
+    "kernel_obj": "/home/ubuntu/SyzAgent/linuxRepo/llvm_kernel_analysis/bc_dir",
+    "image": "/home/ubuntu/SyzAgent/imageDir/bullseye.img",
+    "sshkey": "/home/ubuntu/SyzAgent/imageDir/bullseye.id_rsa",
+    "syzkaller": "/home/ubuntu/SyzAgent/syzkaller",
     "procs": 8,
     "type": "qemu",
     "vm": {
         "count": 4,
-        "kernel": "/home/ubuntu/SyzWithLLM/linuxRepo/llvm_kernel_analysis/bc_dir/arch/x86/boot/bzImage",
+        "kernel": "/home/ubuntu/SyzAgent/linuxRepo/llvm_kernel_analysis/bc_dir/arch/x86/boot/bzImage",
         "cpu": 2,
         "mem": 2048
     }
@@ -164,23 +164,23 @@ mkdir workdir
 
 There are several absolute paths in our source code, before running the experiment, please follow the following tips to modify these paths into your actual path to avoid running errors. 
 
-Here we take `SyzWithLLM/ChatAnalyzer/chat_interface.py, line 5 and line 7` as example, and you can modify them into the following lines. The `prefix path` represents where `SyzWithLLM` is in.
+Here we take `SyzAgent/ChatAnalyzer/chat_interface.py, line 5 and line 7` as example, and you can modify them into the following lines. The `prefix path` represents where `SyzAgent` is in.
 
 ```
-sys.path.insert(0, os.path.abspath('prefix path + /SyzWithLLM/ChatAnalyzer'))
-project_root = "prefix path + /SyzWithLLM/"
+sys.path.insert(0, os.path.abspath('prefix path + /SyzAgent/ChatAnalyzer'))
+project_root = "prefix path + /SyzAgent/"
 ```
 
 The files containing absolute paths are as follows:
 
 ```
-SyzWithLLM/ChatAnalyzer/chat_interface.py, line 5 and line 7.
-SyzWithLLM/ChatAnalyzer/chat_interface_mannual.py, line 5 and line 6.
-SyzWithLLM/ChatAnalyzer/extract_func_body.py, line 5.
-SyzWithLLM/ChatAnalyzer/extract_function_callpaths.py, line 5 and line 8.
-SyzWithLLM/ChatAnalyzer/mutation_prompt.py, line 3.
-SyzWithLLM/linuxRepo/line2addr/addr_extractor.py, line 8.
-SyzWithLLM/run_experiment.py, line 7.
+SyzAgent/ChatAnalyzer/chat_interface.py, line 5 and line 7.
+SyzAgent/ChatAnalyzer/chat_interface_mannual.py, line 5 and line 6.
+SyzAgent/ChatAnalyzer/extract_func_body.py, line 5.
+SyzAgent/ChatAnalyzer/extract_function_callpaths.py, line 5 and line 8.
+SyzAgent/ChatAnalyzer/mutation_prompt.py, line 3.
+SyzAgent/linuxRepo/line2addr/addr_extractor.py, line 8.
+SyzAgent/run_experiment.py, line 7.
 ```
 
 Now you can run the experiment using the following instruction.
