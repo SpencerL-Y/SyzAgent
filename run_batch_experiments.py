@@ -79,7 +79,7 @@ if __name__ == "__main__":
     print("close range: " + sys.argv[2])
     root_cwd = os.getcwd()
     
-    folder_index = 4
+    folder_index = 1
     # skip_folder_index = [1, 6, 9, 19, 20, 21, 22, 27, 30, 33, 36, 41]
     # specific_folder_index = [13,14,15,16,23,24,32,38]
     skip_folder_index = []

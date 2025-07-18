@@ -1,3 +1,0 @@
-__vfs_setxattr_locked
-security_inode_setxattr
-vfs_setxattr

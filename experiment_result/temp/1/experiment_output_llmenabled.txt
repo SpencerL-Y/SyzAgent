@@ -1,0 +1,75 @@
+2025/07/16 15:15:46 serving http on http://127.0.0.1:56741
+2025/07/16 15:15:46 serving rpc on tcp://[::]:34997
+2025/07/16 15:15:46 booting test machines...
+2025/07/16 15:15:46 wait for the connection from test machine...
+2025/07/16 15:15:56 XXX Fuzzer command: 
+/syz-fuzzer -executor=/syz-executor -name=vm-1 -arch=amd64 -manager=localhost:34997 -sandbox=none -cover=true -debug=false  -optional=slowdown=1:sandbox_arg=0:pprof_port=6060
+2025/07/16 15:16:03 machine check:
+failed to read the following files in the VM:
+/dev/raw-gadget                             : open /dev/raw-gadget: no such file or directory
+
+BinFmtMisc              : enabled
+Comparisons             : call 0 failed with errno 38
+Coverage                : enabled
+DelayKcovMmap           : enabled
+DevlinkPCI              : PCI device 0000:00:10.0 is not available.  (errno 2: No such file or directory).
+ExtraCoverage           : enabled
+Fault                   : CONFIG_FAULT_INJECTION is not enabled.  (errno 2: No such file or directory).
+KCSAN                   : write(/sys/kernel/debug/kcsan, on) failed.  (errno 2: No such file or directory).
+LRWPANEmulation         : netlink: failed to get family id for nl802154: No such file or directory.  netlink_query_family_id failed.  (errno 2: No such file or directory).
+Leak                    : failed to write(kmemleak, "scan=off").  (errno 2: No such file or directory).
+NetDevices              : enabled
+NetInjection            : tun: can't open /dev/net/tun.  (errno 2: No such file or directory).
+NicVF                   : PCI device 0000:00:11.0 is not available.  (errno 2: No such file or directory).
+SandboxAndroid          : enabled
+SandboxNamespace        : enabled
+SandboxSetuid           : enabled
+Swap                    : enabled
+USBEmulation            : failed to chmod /dev/raw-gadget.  (errno 2: No such file or directory).
+VhciInjection           : socket(AF_BLUETOOTH, SOCK_RAW, BTPROTO_HCI) failed.  (errno 97: Address family not supported by protocol).
+WifiEmulation           : netlink_query_family_id failed.  (errno 2: No such file or directory).
+syscalls                : 2193/4499
+
+2025/07/16 15:16:11 corpus                  : 29 (0 broken, 29 seeds)
+2025/07/16 15:16:16 candidates=0 corpus=29 coverage=14270 exec total=924 (30/sec) fuzzing VMs=1 reproducing=0 
+2025/07/16 15:16:26 candidates=0 corpus=46 coverage=14590 exec total=1537 (38/sec) fuzzing VMs=1 reproducing=0 
+2025/07/16 15:16:36 candidates=0 corpus=86 coverage=14801 exec total=2779 (55/sec) fuzzing VMs=1 reproducing=0 
+2025/07/16 15:16:46 candidates=0 corpus=122 coverage=14956 exec total=4117 (68/sec) fuzzing VMs=1 reproducing=0 
+2025/07/16 15:16:55 Hit times: 0
+2025/07/16 15:16:56 candidates=0 corpus=144 coverage=15177 exec total=4632 (66/sec) fuzzing VMs=1 reproducing=0 
+2025/07/16 15:17:06 candidates=0 corpus=196 coverage=15632 exec total=5826 (72/sec) fuzzing VMs=1 reproducing=0 
+2025/07/16 15:17:16 candidates=0 corpus=218 coverage=17187 exec total=6733 (74/sec) fuzzing VMs=1 reproducing=0 
+2025/07/16 15:17:26 candidates=0 corpus=228 coverage=17508 exec total=7286 (72/sec) fuzzing VMs=1 reproducing=0 
+2025/07/16 15:17:36 candidates=0 corpus=232 coverage=17559 exec total=7683 (69/sec) fuzzing VMs=1 reproducing=0 
+2025/07/16 15:17:45 XXXXX REACH
+2025/07/16 15:17:45 XXXXX REACH
+2025/07/16 15:17:46 candidates=0 corpus=235 coverage=17749 exec total=7986 (66/sec) fuzzing VMs=1 reproducing=0 
+2025/07/16 15:17:46 XXXXX REACH
+2025/07/16 15:17:46 XXXXX REACH
+2025/07/16 15:17:46 XXXXX REACH
+2025/07/16 15:17:46 XXXXX REACH
+2025/07/16 15:17:46 XXXXX REACH
+2025/07/16 15:17:46 XXXXX REACH
+2025/07/16 15:17:46 XXXXX REACH
+2025/07/16 15:17:46 XXXXX REACH
+2025/07/16 15:17:46 XXXXX REACH
+2025/07/16 15:17:46 XXXXX REACH
+2025/07/16 15:17:46 XXXXX REACH
+2025/07/16 15:17:46 XXXXX REACH
+2025/07/16 15:17:46 XXXXX REACH
+2025/07/16 15:17:46 XXXXX REACH
+2025/07/16 15:17:46 XXXXX REACH
+2025/07/16 15:17:46 XXXXX REACH
+2025/07/16 15:17:46 XXXXX REACH
+2025/07/16 15:17:47 XXXXX REACH
+2025/07/16 15:17:47 XXXXX REACH
+2025/07/16 15:17:51 Hit times: 21
+2025/07/16 15:17:56 candidates=0 corpus=241 coverage=17835 exec total=8203 (63/sec) fuzzing VMs=1 reproducing=0 
+2025/07/16 15:18:06 candidates=0 corpus=250 coverage=18025 exec total=8348 (59/sec) fuzzing VMs=1 reproducing=0 
+2025/07/16 15:18:16 candidates=0 corpus=249 coverage=18129 exec total=8393 (55/sec) fuzzing VMs=1 reproducing=0 
+2025/07/16 15:18:26 candidates=0 corpus=253 coverage=18144 exec total=8467 (52/sec) fuzzing VMs=1 reproducing=0 
+2025/07/16 15:18:36 candidates=0 corpus=256 coverage=18151 exec total=8567 (50/sec) fuzzing VMs=1 reproducing=0 
+2025/07/16 15:18:46 candidates=0 corpus=279 coverage=18475 exec total=9088 (50/sec) fuzzing VMs=1 reproducing=0 
+2025/07/16 15:18:56 candidates=0 corpus=293 coverage=18603 exec total=9492 (49/sec) fuzzing VMs=1 reproducing=0 
+SIGINT: shutting down...
+2025/07/16 15:18:59 vm-1: running for 3m2.601830389s, restarting

@@ -99,7 +99,19 @@
         "shared_mutex": "cpp",
         "stop_token": "cpp",
         "thread": "cpp",
-        "cfenv": "cpp"
+        "cfenv": "cpp",
+        "any": "cpp",
+        "barrier": "cpp",
+        "charconv": "cpp",
+        "coroutine": "cpp",
+        "propagate_const": "cpp",
+        "latch": "cpp",
+        "ranges": "cpp",
+        "span": "cpp",
+        "variant": "cpp",
+        "cuchar": "cpp",
+        "hash_map": "cpp",
+        "hash_set": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
