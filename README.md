@@ -33,7 +33,7 @@ SyzAgent/
     |        ├── llvm_kernel_analysis/ 
     |        ├── .ctags
     |        └── tags
-    ├── syzkaller/      # our modified syzkaller └──
+    ├── syzkaller/      # our modified syzkaller 
     ├── total_result_FASE/ # experimental results used in the paper
     ├── target_functions.txt        # target functions being processed
     ├── target_functions_list.txt   # list of target functions
